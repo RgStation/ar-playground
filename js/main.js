@@ -38,6 +38,9 @@ function init() {
     arButton.style.position = "fixed";
     arButton.style.top = "10px";
     arButton.style.left = "10px";
+    arButton.style.width = "140px";
+    arButton.style.height = "50px";
+    arButton.style.lineHeight = "50px";
     arButton.style.padding = "12px 16px";
     arButton.style.background = "black";
     arButton.style.color = "white";

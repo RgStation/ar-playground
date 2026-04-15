@@ -46,12 +46,16 @@ function init() {
     arButton.style.alignItems = "center";
     arButton.style.justifyContent = "center";
 
+    arButton.style.padding = "5px, 20px";
+    arButton.style.margin = "0";
+
     arButton.style.background = "black";
     arButton.style.color = "white";
-    arButton.style.borderRadius = "12px";
+    arButton.style.borderRadius = "14px";
     arButton.style.zIndex = "20";
 
     arButton.style.fontSize = "30px";
+    arButton.style.textAlign = "center";
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.08);

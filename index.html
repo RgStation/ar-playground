@@ -19,6 +19,16 @@
       z-index: 10;
     }
 
+    .instructions {
+        margin-bottom: 10px;
+        color: white;
+        background: rgba(0, 0, 0, 0.6);
+        display: inline-block;
+        padding: 8px, 12px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
     button {
       padding: 15px 20px;
       margin: 8px;
@@ -42,10 +52,17 @@
 <body>
 
 <div class="ui">
-  <button id="robotBtn">🤖 Robot</button>
-  <button id="appleBtn">🍎 Apple</button>
-  <button id="heartBtn">❤️ Heart</button>
-  <button id="colorBtn">🎨 Green</button>
+
+    <div class="instructions">
+        Select a model first, then choose a color or don't, and click Start AR
+    </div>
+
+    <button id="robotBtn">🤖 Robot</button>
+    <button id="appleBtn">🍎 Apple</button>
+    <button id="heartBtn">❤️ Heart</button>
+    <button id="greenBtn">🎨 Green</button>
+    <button id="blueBtn">🎨 Blue</button>
+    <button id="yellowBtn">🎨 Yellow</button>
 </div>
 
 <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>

@@ -41,18 +41,19 @@ function init() {
     arButton.style.width = "140px";
     arButton.style.height = "50px";
     arButton.style.lineHeight = "50px";
-    arButton.style.padding = "12px 16px";
+    arButton.style.padding = "0";
     arButton.style.background = "black";
     arButton.style.color = "white";
     arButton.style.borderRadius = "8px";
-    arButton.style.fontSize = "14px";
     arButton.style.zIndex = "20";
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.4, -0.5);
   document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2, -0.2);
   document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.01, -0.2);
-  document.getElementById("colorBtn").onclick = () => changeColor("#21aa41");
+  document.getElementById("greenBtn").onclick = () => changeColor("#21aa41");
+  document.getElementById("blueBtn").onclick = () => changeColor("#164ace");
+  document.getElementById("yellowBtn").onclick = () => changeColor("#dff708");
 
   renderer.setAnimationLoop(render);
 }

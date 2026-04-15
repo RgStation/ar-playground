@@ -39,24 +39,7 @@ function init() {
     arButton.style.position = "fixed";
     arButton.style.top = "10px";
     arButton.style.left = "10px";
-
-    arButton.style.width = "220px";
-    arButton.style.height = "80px";
-
-    arButton.style.display = "flex";
-    arButton.style.alignItems = "center";
-    arButton.style.justifyContent = "center";
-
-    arButton.style.padding = "5px, 20px";
-    arButton.style.margin = "0";
-
-    arButton.style.background = "black";
-    arButton.style.color = "white";
-    arButton.style.borderRadius = "14px";
     arButton.style.zIndex = "20";
-
-    arButton.style.fontSize = "30px";
-    arButton.style.textAlign = "center";
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => {

@@ -59,7 +59,7 @@ function init() {
   renderer.setAnimationLoop(render);
 }
 
-// 🔄 LOAD MODEL
+// LOAD MODEL
 function loadModel(path, scale) {
 
   if (currentModel) {
@@ -74,11 +74,11 @@ function loadModel(path, scale) {
     let y = -0.2;
 
     if (path.includes("RobotExpressive")) {
-        y = -0.6;
+        y = -0.4;
     }
 
     if (path.includes("heart")) {
-        y = -0.6;
+        y = -0.5;
     }
 
     currentModel.scale.setScalar(scale);
@@ -90,7 +90,7 @@ function loadModel(path, scale) {
   });
 }
 
-// 🎨 COLOR (toimii myös tekstuureilla)
+// COLOR
 function changeColor(color) {
 
   if (!currentModel) return;
@@ -98,7 +98,7 @@ function changeColor(color) {
   currentModel.traverse((child) => {
     if (child.isMesh) {
 
-      // korvaa materiaali kokonaan (varmin tapa)
+      // korvaa materiaali kokonaan
       child.material = new THREE.MeshStandardMaterial({
         color: color
       });

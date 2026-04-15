@@ -15,6 +15,9 @@
       position: fixed;
       bottom: 20px;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       z-index: 10;
     }
@@ -27,6 +30,10 @@
         padding: 8px, 12px;
         border-radius: 8px;
         font-size: 14px;
+    }
+    .row {
+        display: flex;
+        justify-content: center;
     }
 
     button {
@@ -56,13 +63,16 @@
     <div class="instructions">
         Select a model first, then choose a color or don't, and click Start AR
     </div>
-
-    <button id="robotBtn">🤖 Robot</button>
-    <button id="appleBtn">🍎 Apple</button>
-    <button id="heartBtn">❤️ Heart</button>
-    <button id="greenBtn">🎨 Green</button>
-    <button id="blueBtn">🎨 Blue</button>
-    <button id="yellowBtn">🎨 Yellow</button>
+    <div class="row">
+        <button id="robotBtn">🤖 Robot</button>
+        <button id="appleBtn">🍎 Apple</button>
+        <button id="heartBtn">❤️ Heart</button>
+    </div>
+    <div class="row">
+        <button id="greenBtn">💚 Green</button>
+        <button id="blueBtn">💙 Blue</button>
+        <button id="yellowBtn">💛 Yellow</button>
+    </div>
 </div>
 
 <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>

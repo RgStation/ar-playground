@@ -38,14 +38,15 @@ function init() {
     arButton.style.position = "fixed";
     arButton.style.top = "10px";
     arButton.style.left = "10px";
-    arButton.style.width = "140px";
-    arButton.style.height = "50px";
-    arButton.style.lineHeight = "50px";
+    arButton.style.width = "180px";
+    arButton.style.height = "70px";
+    arButton.style.lineHeight = "70px";
     arButton.style.padding = "0";
     arButton.style.background = "black";
     arButton.style.color = "white";
     arButton.style.borderRadius = "8px";
     arButton.style.zIndex = "20";
+    arButton.style.fontSize = "30px";
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.08);
@@ -107,7 +108,7 @@ function changeColor(color) {
   });
 }
 
-// 🎥 RENDER
+// RENDER
 function render() {
 
   if (currentModel) {

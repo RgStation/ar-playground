@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AR-playground</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial;
+    }
+
+    .ui {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="ui">
+  <button id="robotBtn">🤖 Robot</button>
+  <button id="appleBtn">🍎 Apple</button>
+  <button id="heartBtn">❤️ Heart</button>
+  <button id="colorBtn">🎨 Green</button>
+</div>
+
+<script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

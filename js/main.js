@@ -38,14 +38,19 @@ function init() {
     arButton.style.position = "fixed";
     arButton.style.top = "10px";
     arButton.style.left = "10px";
-    arButton.style.width = "180px";
-    arButton.style.height = "70px";
-    arButton.style.lineHeight = "70px";
-    arButton.style.padding = "0";
+
+    arButton.style.width = "220px";
+    arButton.style.height = "80px";
+
+    arButton.style.display = "flex";
+    arButton.style.alignItems = "center";
+    arButton.style.justifyContent = "center";
+
     arButton.style.background = "black";
     arButton.style.color = "white";
-    arButton.style.borderRadius = "8px";
+    arButton.style.borderRadius = "12px";
     arButton.style.zIndex = "20";
+
     arButton.style.fontSize = "30px";
 
   // NAPIT

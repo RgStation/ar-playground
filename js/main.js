@@ -115,13 +115,14 @@ function changeColor(color) {
 
   if (!currentModel) return;
 
-  currentModel.traverse((child) => {
-    if (child.isMesh) {
+  if (currentModelName === "robot") return;
 
-      // korvaa materiaali kokonaan
-      child.material = new THREE.MeshStandardMaterial({
-        color: color
-      });
+  currentModel.traverse((child) => {
+    if (child.isMesh && child.material) {
+
+      child.material.map = null;
+      child.material.color.set(color);
+      child.material.needsUpdate = true;
 
     }
   });

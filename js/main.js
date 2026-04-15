@@ -35,9 +35,14 @@ function init() {
   scene.add(light);
 
   // AR BUTTON
-  document.body.appendChild(ARButton.createButton(renderer));
+  const arButton = ARButton.createButton(renderer);
+  arButton.style.position = "absolute";
+  arButton.style.top = "10px";
+  arButton.style.right = "10px";
+  arButton.style.zIndex = "3";
+  document.body.appendChild(arButton);
 
-  // LADATAAN KAIKKI MALLIT
+  // LADATAAN MALLIT
   loadAllModels();
 
   // NAPIT
@@ -49,35 +54,35 @@ function init() {
   renderer.setAnimationLoop(render);
 }
 
-// LATAA KAIKKI VALMIIKSI
+// LATAA KAIKKI
 function loadAllModels() {
 
   loader.load("assets/models/robot.glb", (gltf) => {
     models.robot = gltf.scene;
-    setupModel(models.robot);
+    setupModel(models.robot, 0.3);
   });
 
   loader.load("assets/models/apple.glb", (gltf) => {
     models.apple = gltf.scene;
-    setupModel(models.apple);
+    setupModel(models.apple, 0.1);
   });
 
   loader.load("assets/models/heart_in_love.glb", (gltf) => {
     models.heart = gltf.scene;
-    setupModel(models.heart);
+    setupModel(models.heart, 0.05);
   });
 }
 
-// ASETUKSET MALLILLE
-function setupModel(model) {
-  model.scale.set(0.4, 0.4, 0.4);
-  model.position.set(0, -0.5, -1);
+// MALLIN ASETUKSET
+function setupModel(model, scale) {
+  model.scale.set(scale, scale, scale);
+  model.position.set(0, -0.3, -1);
   model.visible = false;
 
   scene.add(model);
 }
 
-// AKTIIVINEN MALLI
+// VAIHTO
 function switchModel(name) {
 
   if (currentModel) {
@@ -96,8 +101,10 @@ function changeColor(color) {
   if (!currentModel) return;
 
   currentModel.traverse((child) => {
-    if (child.isMesh) {
-      child.material.color.set(color);
+    if (child.isMesh && child.material) {
+      if (child.material.color) {
+        child.material.color.set(color);
+      }
     }
   });
 }

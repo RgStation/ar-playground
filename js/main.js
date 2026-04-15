@@ -31,22 +31,25 @@ function init() {
   scene.add(light);
 
   // AR BUTTON
-  const arButton = ARButton.createButton(renderer);
-  document.body.appendChild(arButton);
+    const arButton = ARButton.createButton(renderer);
+    document.body.appendChild(arButton);
 
-  // pakotetaan tyyli JS:llä (varmin tapa)
-  arButton.style.position = "fixed";
-  arButton.style.top = "10px";
-  arButton.style.left = "10px";
-  arButton.style.width = "120px";
-  arButton.style.height = "40px";
-  arButton.style.zIndex = "20";
+    // selkeä tyyli
+    arButton.style.position = "fixed";
+    arButton.style.top = "10px";
+    arButton.style.left = "10px";
+    arButton.style.padding = "12px 16px";
+    arButton.style.background = "black";
+    arButton.style.color = "white";
+    arButton.style.borderRadius = "8px";
+    arButton.style.fontSize = "14px";
+    arButton.style.zIndex = "20";
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.4, -0.5);
   document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2, -0.2);
-  document.getElementById("heartBtn").onclick = () => loadModel("assets/models/heart_in_love.glb", 0.1, -0.2);
-  document.getElementById("colorBtn").onclick = () => changeColor(0x00ff00);
+  document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.1, -0.2);
+  document.getElementById("colorBtn").onclick = () => changeColor("#21aa41");
 
   renderer.setAnimationLoop(render);
 }

@@ -54,6 +54,7 @@ function init() {
   document.getElementById("greenBtn").onclick = () => changeColor("#21aa41");
   document.getElementById("blueBtn").onclick = () => changeColor("#164ace");
   document.getElementById("yellowBtn").onclick = () => changeColor("#dff708");
+  document.getElementById("pinkBtn").onclick = () => changeColor("#f708b7");
 
   renderer.setAnimationLoop(render);
 }
@@ -68,6 +69,17 @@ function loadModel(path, scale, yPos) {
   loader.load(path, (gltf) => {
 
     currentModel = gltf.scene;
+
+    // eri korkeudet eri malleille
+    let y = -0.2;
+
+    if (path.includes("RobotExpressive")) {
+        y = -0.4;
+    }
+
+    if (path.includes("heart")) {
+        y = -0.4;
+    }
 
     currentModel.scale.setScalar(scale);
 

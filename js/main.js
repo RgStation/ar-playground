@@ -131,7 +131,7 @@ function changeColor(color) {
 // RENDER
 function render() {
 
-  if (currentModel && currentModelName !== "robot") {
+  if (currentModel) {
     currentModel.rotation.y += 0.01;
   }
 

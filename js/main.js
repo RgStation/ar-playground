@@ -36,11 +36,14 @@ function init() {
 
   // AR BUTTON
   const arButton = ARButton.createButton(renderer);
-  arButton.style.position = "absolute";
+  document.body.appendChild(arButton);
+
+  arButton.style.position = "fixed";
   arButton.style.top = "10px";
   arButton.style.right = "10px";
-  arButton.style.zIndex = "3";
-  document.body.appendChild(arButton);
+  arButton.style.width = "120px";
+  arButton.style.height = "40px";
+  arButton.style.zIndex = "10";
 
   // LADATAAN MALLIT
   loadAllModels();
@@ -57,7 +60,7 @@ function init() {
 // LATAA KAIKKI
 function loadAllModels() {
 
-  loader.load("assets/models/robot.glb", (gltf) => {
+  loader.load("assets/models/RobotExpressive.glb", (gltf) => {
     models.robot = gltf.scene;
     setupModel(models.robot, 1.2);
   });
@@ -69,14 +72,14 @@ function loadAllModels() {
 
   loader.load("assets/models/heart_in_love.glb", (gltf) => {
     models.heart = gltf.scene;
-    setupModel(models.heart, 0.2);
+    setupModel(models.heart, 0.5);
   });
 }
 
 // MALLIN ASETUKSET
 function setupModel(model, scale) {
   model.scale.setScalar(scale);
-  model.position.set(0, -0.3, -1);
+
   model.visible = false;
 
   scene.add(model);
@@ -92,8 +95,25 @@ function switchModel(name) {
   currentModel = models[name];
 
   if (currentModel) {
+    placeInFrontOfCamera(currentModel);
     currentModel.visible = true;
   }
+}
+
+// MALLI KAMERAN ETEEN
+
+function placeInFrontOfCamera(model) {
+
+    const distance = 1;
+
+    const dir = new THREE.Vector3(0, 0, -1);
+    dir.applyQuaternion(camera.quaternion);
+
+    const pos = camera.position.clone().add(dir.multiplyScalaer(distance));
+
+    model.position.copy(pos);
+
+    model.lookAt(camera.position);
 }
 
 // VÄRIN VAIHTO
@@ -102,10 +122,8 @@ function changeColor(color) {
 
   currentModel.traverse((child) => {
     if (child.isMesh && child.material && child.material.color) {
-      if (child.material.color) {
         child.material.color.set(color);
       }
-    }
   });
 }
 

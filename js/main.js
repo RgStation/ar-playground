@@ -49,7 +49,7 @@ function init() {
 
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.08);
-  document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2, -0.2);
+  document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2);
   document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.01);
   document.getElementById("greenBtn").onclick = () => changeColor("#21aa41");
   document.getElementById("blueBtn").onclick = () => changeColor("#164ace");
@@ -60,7 +60,7 @@ function init() {
 }
 
 // 🔄 LOAD MODEL
-function loadModel(path, scale, yPos) {
+function loadModel(path, scale) {
 
   if (currentModel) {
     scene.remove(currentModel);
@@ -84,7 +84,7 @@ function loadModel(path, scale, yPos) {
     currentModel.scale.setScalar(scale);
 
     // 👇 tärkeä: alas ja eteen
-    currentModel.position.set(0, yPos, -1);
+    currentModel.position.set(0, y, -1);
 
     scene.add(currentModel);
   });

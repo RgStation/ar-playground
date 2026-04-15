@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AR-playground</title>
+  <title>AR Playground</title>
 
   <style>
     body {
@@ -13,25 +13,28 @@
 
     .ui {
       position: fixed;
-      bottom: 30px;
+      bottom: 20px;
       width: 100%;
       text-align: center;
-      z-index: 1;
+      z-index: 10;
     }
 
     button {
       padding: 15px 20px;
       margin: 8px;
       font-size: 18px;
-      border: none;
       border-radius: 10px;
+      border: none;
       background: black;
       color: white;
     }
 
-    button.ar-button {
-        background: black !important;
-        color: white !important;
+    /* pakotetaan AR nappi ylös */
+    button[style*="position: absolute"] {
+      top: 10px !important;
+      bottom: auto !important;
+      left: 10px !important;
+      z-index: 20 !important;
     }
   </style>
 </head>
@@ -39,10 +42,10 @@
 <body>
 
 <div class="ui">
-  <button id="robotBtn">🤖 Robot</button>
-  <button id="appleBtn">🍎 Apple</button>
-  <button id="heartBtn">❤️ Heart</button>
-  <button id="colorBtn">🎨 Green</button>
+  <button id="robotBtn">🤖</button>
+  <button id="appleBtn">🍎</button>
+  <button id="heartBtn">❤️</button>
+  <button id="colorBtn">🎨</button>
 </div>
 
 <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>

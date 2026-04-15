@@ -74,11 +74,11 @@ function loadModel(path, scale, yPos) {
     let y = -0.2;
 
     if (path.includes("RobotExpressive")) {
-        y = -0.4;
+        y = -0.6;
     }
 
     if (path.includes("heart")) {
-        y = -0.4;
+        y = -0.6;
     }
 
     currentModel.scale.setScalar(scale);

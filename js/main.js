@@ -48,7 +48,7 @@ function init() {
   // NAPIT
   document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.4, -0.5);
   document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2, -0.2);
-  document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.1, -0.2);
+  document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.01, -0.2);
   document.getElementById("colorBtn").onclick = () => changeColor("#21aa41");
 
   renderer.setAnimationLoop(render);

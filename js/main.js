@@ -2,6 +2,7 @@ import { ARButton } from "https://unpkg.com/three@0.126.0/examples/jsm/webxr/ARB
 
 let camera, scene, renderer;
 let currentModel = null;
+let currentModelName = "";
 
 const loader = new THREE.GLTFLoader();
 
@@ -58,9 +59,18 @@ function init() {
     arButton.style.textAlign = "center";
 
   // NAPIT
-  document.getElementById("robotBtn").onclick = () => loadModel("assets/models/RobotExpressive.glb", 0.08);
-  document.getElementById("appleBtn").onclick = () => loadModel("assets/models/apple.glb", 0.2);
-  document.getElementById("heartBtn").onclick = () => loadModel("assets/models/pumping_heart_model.glb", 0.01);
+  document.getElementById("robotBtn").onclick = () => {
+    currentModelName = "robot";
+    loadModel("assets/models/RobotExpressive.glb", 0.08);
+  };
+  document.getElementById("appleBtn").onclick = () => {
+    currentModelName = "apple";
+    loadModel("assets/models/apple.glb", 0.2);
+  };
+  document.getElementById("heartBtn").onclick = () => {
+    currentModelName = "heart";
+    loadModel("assets/models/pumping_heart_model.glb", 0.01);
+  };
   document.getElementById("greenBtn").onclick = () => changeColor("#21aa41");
   document.getElementById("blueBtn").onclick = () => changeColor("#164ace");
   document.getElementById("yellowBtn").onclick = () => changeColor("#dff708");
@@ -120,7 +130,7 @@ function changeColor(color) {
 // RENDER
 function render() {
 
-  if (currentModel) {
+  if (currentModel && currentModelName !== "robot") {
     currentModel.rotation.y += 0.01;
   }
 

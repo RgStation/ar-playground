@@ -59,23 +59,23 @@ function loadAllModels() {
 
   loader.load("assets/models/robot.glb", (gltf) => {
     models.robot = gltf.scene;
-    setupModel(models.robot, 0.3);
+    setupModel(models.robot, 1.2);
   });
 
   loader.load("assets/models/apple.glb", (gltf) => {
     models.apple = gltf.scene;
-    setupModel(models.apple, 0.1);
+    setupModel(models.apple, 0.3);
   });
 
   loader.load("assets/models/heart_in_love.glb", (gltf) => {
     models.heart = gltf.scene;
-    setupModel(models.heart, 0.05);
+    setupModel(models.heart, 0.2);
   });
 }
 
 // MALLIN ASETUKSET
 function setupModel(model, scale) {
-  model.scale.set(scale, scale, scale);
+  model.scale.setScalar(scale);
   model.position.set(0, -0.3, -1);
   model.visible = false;
 
@@ -101,7 +101,7 @@ function changeColor(color) {
   if (!currentModel) return;
 
   currentModel.traverse((child) => {
-    if (child.isMesh && child.material) {
+    if (child.isMesh && child.material && child.material.color) {
       if (child.material.color) {
         child.material.color.set(color);
       }

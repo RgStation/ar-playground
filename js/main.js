@@ -3,6 +3,7 @@ import { ARButton } from "https://unpkg.com/three@0.126.0/examples/jsm/webxr/ARB
 let camera, scene, renderer;
 let currentModel = null;
 let currentModelName = "";
+let overlayMesh = null;
 
 const loader = new THREE.GLTFLoader();
 
@@ -59,7 +60,35 @@ function init() {
   document.getElementById("yellowBtn").onclick = () => changeColor("#dff708");
   document.getElementById("pinkBtn").onclick = () => changeColor("#f708b7");
 
+  // FILTER VÄRIHOMMA
+  const overlayGeometry = new THREE.PlaneGeometry(10, 10);
+
+  const overlayMaterial = new THREE.MeshBasicMaterial({
+    color: 0x000000,
+    transparent: true,
+    opacity: 0,
+  });
+
+  overlayMesh = new THREE.Mesh(overlayGeometry, overlayMaterial);
+
+    document.getElementById("normalFilter").onclick = () => setFilter(0x000000, 0);
+    document.getElementById("redFilter").onclick = () => setFilter(0xff0000, 0.2);
+    document.getElementById("blueFilter").onclick = () => setFilter(0x0000ff, 0.2);
+    document.getElementById("greenFilter").onclick = () => setFilter("#21aa41", 0.2);
+
+  // kameran eteen
+  overlayMesh.position.set(0, 0, -0,5);
+  camera.add(overlayMesh);
+  scene.add(camera);
+
   renderer.setAnimationLoop(render);
+}
+
+function setFilter(color, opacity) {
+    if (!overlayMesh) return;
+
+    overlayMesh.material.color.set(color);
+    overlayMesh.material.opacity = opacity;
 }
 
 // LOAD MODEL
@@ -77,11 +106,11 @@ function loadModel(path, scale) {
     let y = -0.2;
 
     if (path.includes("RobotExpressive")) {
-        y = -0.4;
+        y = -0.3;
     }
 
     if (path.includes("heart")) {
-        y = -0.5;
+        y = -0.3;
     }
 
     currentModel.scale.setScalar(scale);

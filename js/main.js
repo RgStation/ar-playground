@@ -142,6 +142,17 @@ function changeColor(color) {
 
 // RENDER
 function render() {
+    if (overlayMesh) {
+        const distance = 0.5;
+
+        const dir = new THREE.Vector3(0, 0, -1);
+        dir.appyQuaternion(camera.quaternion);
+
+        const pos = camera.position.clone().add(dir.multiplyScalar(distance));
+
+        overlayMesh.position.copy(pos);
+        overlayMesh.quaternion.copy(camera.quaternion);
+    }
 
   renderer.render(scene, camera);
 }

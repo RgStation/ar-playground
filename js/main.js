@@ -77,9 +77,9 @@ function init() {
   scene.add(overlayMesh);
 
     document.getElementById("normalFilter").onclick = () => setFilter(0x000000, 0);
-    document.getElementById("redFilter").onclick = () => setFilter(0xff0000, 0.2);
-    document.getElementById("blueFilter").onclick = () => setFilter(0x0000ff, 0.2);
-    document.getElementById("greenFilter").onclick = () => setFilter(0x21aa41, 0.2);
+    document.getElementById("redFilter").onclick = () => setFilter(0xff0000, 0.35);
+    document.getElementById("blueFilter").onclick = () => setFilter(0x0000ff, 0.35);
+    document.getElementById("greenFilter").onclick = () => setFilter(0x21aa41, 0.35);
 
   // kameran eteen
   overlayMesh.position.set(0, 0, -0.5);

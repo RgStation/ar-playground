@@ -61,12 +61,13 @@ function init() {
   document.getElementById("pinkBtn").onclick = () => changeColor("#f708b7");
 
   // FILTER VÄRIHOMMA
-  const overlayGeometry = new THREE.PlaneGeometry(10, 10);
+  const overlayGeometry = new THREE.PlaneGeometry(2, 2);
 
   const overlayMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000,
     transparent: true,
     opacity: 0,
+    depthTest: false,
   });
 
   overlayMesh = new THREE.Mesh(overlayGeometry, overlayMaterial);
@@ -74,12 +75,10 @@ function init() {
     document.getElementById("normalFilter").onclick = () => setFilter(0x000000, 0);
     document.getElementById("redFilter").onclick = () => setFilter(0xff0000, 0.2);
     document.getElementById("blueFilter").onclick = () => setFilter(0x0000ff, 0.2);
-    document.getElementById("greenFilter").onclick = () => setFilter("#21aa41", 0.2);
+    document.getElementById("greenFilter").onclick = () => setFilter(0x21aa41, 0.2);
 
   // kameran eteen
-  overlayMesh.position.set(0, 0, -0,5);
-  camera.add(overlayMesh);
-  scene.add(camera);
+  overlayMesh.position.set(0, 0, -0.5);
 
   renderer.setAnimationLoop(render);
 }
@@ -110,7 +109,7 @@ function loadModel(path, scale) {
     }
 
     if (path.includes("heart")) {
-        y = -0.3;
+        y = -0.4;
     }
 
     currentModel.scale.setScalar(scale);
@@ -146,7 +145,7 @@ function render() {
         const distance = 0.5;
 
         const dir = new THREE.Vector3(0, 0, -1);
-        dir.appyQuaternion(camera.quaternion);
+        dir.applyQuaternion(camera.quaternion);
 
         const pos = camera.position.clone().add(dir.multiplyScalar(distance));
 

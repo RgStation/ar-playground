@@ -61,16 +61,20 @@ function init() {
   document.getElementById("pinkBtn").onclick = () => changeColor("#f708b7");
 
   // FILTER VÄRIHOMMA
-  const overlayGeometry = new THREE.PlaneGeometry(2, 2);
+  const overlayGeometry = new THREE.PlaneGeometry(3, 3);
 
   const overlayMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000,
     transparent: true,
     opacity: 0,
     depthTest: false,
+    depthWrite: false,
   });
 
   overlayMesh = new THREE.Mesh(overlayGeometry, overlayMaterial);
+
+  overlayMesh.renderOrder = 999;
+  scene.add(overlayMesh);
 
     document.getElementById("normalFilter").onclick = () => setFilter(0x000000, 0);
     document.getElementById("redFilter").onclick = () => setFilter(0xff0000, 0.2);
@@ -142,7 +146,7 @@ function changeColor(color) {
 // RENDER
 function render() {
     if (overlayMesh) {
-        const distance = 0.5;
+        const distance = 0.3;
 
         const dir = new THREE.Vector3(0, 0, -1);
         dir.applyQuaternion(camera.quaternion);

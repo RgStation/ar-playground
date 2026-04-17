@@ -114,9 +114,5 @@ function changeColor(color) {
 // RENDER
 function render() {
 
-  if (currentModel) {
-    currentModel.rotation.y += 0.01;
-  }
-
   renderer.render(scene, camera);
 }
